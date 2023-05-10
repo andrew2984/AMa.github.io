@@ -13,6 +13,8 @@ p, h3 {
     background-color: blueviolet;
     color: beige;
     width: 50vw;
+    min-width: 200px;
+    border: 2px dotted darkmagenta;
 }
 
 /* class selectors */
@@ -23,8 +25,9 @@ p, h3 {
 /* wildcard selectors */
 * {
     /* for everything */
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box
 }
 
 body {
@@ -32,6 +35,10 @@ body {
     color: rgb(4,11,104);
     font-family: "Comic Sans MS", "Times New Roman", Impact, cursive;
     font-size: 1rem;
+    background-image:url(images/profile.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
 }
 
 h1 {
@@ -40,10 +47,17 @@ h1 {
 
 .box-1 {
     background-color: rgba(255,255,255, 0.2);
+
+    margin-top: 5px;
+    margin-left: 1rem;
+    margin-right: 0px;
+    margin-bottom: 5px;
 }
 
 .box-2 {
     background-color: rgba(0,0,0, 0.2);
+    width: fit-content;
+    margin: 5px 2rem;
 }
 
 .floating-box {
@@ -68,3 +82,44 @@ h1 {
     margin-right: auto;
     width: 30%;
 } */
+
+/* footer h4 - descendant - all h4s within footer */
+/* footer>h4 - child - only this path */
+footer>h4 {
+    font-weight: bolder;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+label[for = "search"] {
+    text-transform: uppercase;
+}
+
+#search:focus {
+    outline: rgb(0,255,0) 4px solid;
+}
+
+a:visited {
+    color: initial;
+}
+
+a:hover {
+    cursor: crosshair;
+}
+
+.flex-container {
+    /* for my navbbar */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15vw;
+    border-bottom:  1px solid black;
+}
+
+.flex-container li {
+    list-style: none;
+    padding: 2px;
+}
