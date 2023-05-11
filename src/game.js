@@ -2,13 +2,14 @@ var title = "My Balloon Game"
 // hoisting is the difference between let and var
 let developer = "Andrew Ma"
 
-const BALOON_TOTAL = 1000;
+const BALOON_TOTAL = 5;
 
 const balloons = []
 
 let score = 0
 
-let popSfx;
+let isStarted = false
+
 // const testBalloon = {
 //     label: "Pop me!",
 //     x: 100,
@@ -35,12 +36,22 @@ function greeting() {
     gameTitle.innerHTML = gameTitleText
 }
 
-function preload() {
-    soundFormats("wav")
-    popSfx = loadSound("./pop")
-}
-
 function setup() {
+
+}
+    
+function start() {
+    if (isStarted)
+    {
+        let huh = document.getElementById("game-container").lastChild.remove()
+        score = 0
+        let length = balloons.length
+        for (let i = 0; i <= length; i++)
+        {
+            balloons.pop()
+        }
+        loop()
+    }
     //creates canvas object and attaches it to specified container
     let canvas = createCanvas(640, 480)
     canvas.parent("game-container")
@@ -48,22 +59,28 @@ function setup() {
     for(let i = 0; i < BALOON_TOTAL; i++)
     {
         balloons.push(new Balloon(random(width), random(height), 30, color(random(255), 0, 0)))
-        }
     }
-    
+    isStarted = true
+    document.getElementById("game-button").innerHTML = "Restart"
+}
+
 function draw() {
-    //a nice sky blue background
-    background(135, 206, 235, 1.6)
-
-    for (let balloon of balloons) {
-        fill(balloon.col)
-        balloon.checkToPop()
-        balloon.checkBounds()
-        balloon.blowAway()
-        circle(balloon.x++, balloon.y++, balloon.r)
+    document.getElementById("score").innerHTML = score
+    if (isStarted)
+    {
+        //a nice sky blue background
+        background(135, 206, 235, 1.6)
+    
+        for (let balloon of balloons) {
+            fill(balloon.col)
+            balloon.checkToPop()
+            balloon.checkBounds()
+            balloon.blowAway()
+            circle(balloon.x++, balloon.y++, balloon.r)
+        }
+    
+        if (score >= BALOON_TOTAL) youWin()
     }
-
-    if (score >= BALOON_TOTAL) youWin()
 }
 
 function youWin() {
@@ -76,6 +93,6 @@ function youWin() {
 
     document.getElementById("game-container").appendChild(para)
 
-    let canvas = document.querySelector("#game-container canvas")
+    canvas = document.querySelector("#game-container canvas")
     canvas.remove()
 }

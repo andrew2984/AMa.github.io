@@ -1,3 +1,5 @@
+
+
 /* the html element selector means all of those elements */
 /* li {
     color:dodgerblue;
@@ -10,16 +12,11 @@ p, h3 {
 } */
 
 #search {
-    background-color: blueviolet;
+    background-color: rgb(200, 255, 255);
     color: beige;
     width: 50vw;
     min-width: 200px;
-    border: 2px dotted darkmagenta;
-}
-
-/* class selectors */
-.btn {
-    /* come back later */
+    border: 2px double blue;
 }
 
 /* wildcard selectors */
@@ -31,22 +28,22 @@ p, h3 {
 }
 
 body {
-    background-color: lightgreen;
-    color: rgb(4,11,104);
-    font-family: "Comic Sans MS", "Times New Roman", Impact, cursive;
+    color: rgb(4, 11, 104);
+    font-family: "Helvetica", "Times New Roman", Impact;
     font-size: 1rem;
-    background-image:url(images/profile.jpg);
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 h1 {
-    color: #ff0000;
+    color: crimson;
+    text-decoration: underline;
 }
 
 .box-1 {
-    background-color: rgba(255,255,255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 
     margin-top: 5px;
     margin-left: 1rem;
@@ -55,13 +52,13 @@ h1 {
 }
 
 .box-2 {
-    background-color: rgba(0,0,0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     width: fit-content;
     margin: 5px 2rem;
 }
 
 .floating-box {
-    padding-left: 10;
+
 }
 
 .container {
@@ -69,7 +66,7 @@ h1 {
     margin: auto;
 }
 
-.centre{
+.centre {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -93,12 +90,8 @@ footer>h4 {
     font-size: 1.5rem;
 }
 
-label[for = "search"] {
-    text-transform: uppercase;
-}
-
 #search:focus {
-    outline: rgb(0,255,0) 4px solid;
+    outline: darkblue 2px solid;
 }
 
 a:visited {
@@ -116,10 +109,15 @@ a:hover {
     align-items: center;
     justify-content: center;
     gap: 15vw;
-    border-bottom:  1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .flex-container li {
     list-style: none;
     padding: 2px;
+}
+
+h1, h2, h3, h4, header {
+    font-weight: bold;
+    text-align: center;
 }
